@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { HashLink as Link } from "react-router-hash-link";
 
 interface IHeaderProps {}
 
@@ -28,11 +29,11 @@ export default class Header extends React.Component<
 
   toggleDarkMode() {
     if (document.documentElement.classList.contains("dark")) {
-      document.documentElement.classList.remove("dark");      
-      localStorage.theme = 'light'
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
     } else {
       document.documentElement.classList.add("dark");
-      localStorage.theme = 'dark'
+      localStorage.theme = "dark";
     }
     this.setState((prevState) => ({
       isDarkMode: !prevState.isDarkMode,
@@ -53,7 +54,9 @@ export default class Header extends React.Component<
             <FontAwesomeIcon
               className="fa-lg"
               icon={
-                document.documentElement.classList.contains("dark") ? moonIconDefinition : sunIconDefinition
+                document.documentElement.classList.contains("dark")
+                  ? moonIconDefinition
+                  : sunIconDefinition
               }
             />
             <label className="inline-flex relative items-center cursor-pointer">
@@ -83,19 +86,41 @@ export default class Header extends React.Component<
             </button>
           </div>
         </div>
-        <div className={this.state.isNavBarOpen ? "px-2 pt-2 pb-4 text-white font-semibold dark:text-black" : "hidden"}>
-          <a
-            href="#TBD"
+        <div
+          className={
+            this.state.isNavBarOpen
+              ? "px-2 pt-2 pb-4 text-white font-semibold dark:text-black"
+              : "hidden"
+          }
+        >
+          <Link
+            smooth
+            to="/#home"
             className="block px-2 py-1 rounded hover:bg-stone-900 dark:hover:bg-orange-400"
           >
             Home
-          </a>
-          <a
-            href="#TBD"
-            className="mt-1 block px-2 py-1 rounded hover:bg-stone-900 dark:hover:bg-orange-400"
+          </Link>
+          <Link
+            smooth
+            to="/#about"
+            className="block px-2 py-1 rounded hover:bg-stone-900 dark:hover:bg-orange-400"
           >
             About
-          </a>
+          </Link>
+          <Link
+            smooth
+            to="/#work-experience"
+            className="block px-2 py-1 rounded hover:bg-stone-900 dark:hover:bg-orange-400"
+          >
+            Work Experience
+          </Link>
+          <Link
+            smooth
+            to="/#projects"
+            className="block px-2 py-1 rounded hover:bg-stone-900 dark:hover:bg-orange-400"
+          >
+            Projects
+          </Link>
         </div>
       </header>
     );
