@@ -12,7 +12,7 @@ export default class Timeline extends React.Component<any> {
           <li className="relative" key={index}>
             <div className="flex items-center">
               <div className="w-2 bg-slate-400 dark:bg-slate-600 h-0.5 mr-1"></div>
-              <div className="flex z-10 justify-center items-center w-6 h-6 rounded-full shrink-0 text-stone-400 dark:text-slate-600">
+              <div className="flex justify-center items-center w-6 h-6 rounded-full shrink-0 text-stone-400 dark:text-slate-600">
                 <FontAwesomeIcon icon={calendarIconDefinition} />
               </div>
               <div className="w-full bg-slate-400 dark:bg-slate-600 h-0.5 ml-1"></div>
