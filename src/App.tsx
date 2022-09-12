@@ -1,11 +1,24 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import Routing from "./utils/routing";
-import "./utils/iconlibrary"
+import { Header, Footer } from "./components/index";
+import { IconLibrary, Routing } from "./utils/index";
 
-export default class App extends React.Component {
+
+interface AppProps {
+  
+}
+
+interface AppState {
+
+}
+
+export default class App extends React.Component<AppProps, AppState> {
+
+  constructor(props:AppProps) {
+    super(props);
+    IconLibrary();
+  }
+
   render() {
     return (
       <div className="font-mono bg-stone-700 text-slate-200 dark:bg-orange-200 dark:text-slate-900">

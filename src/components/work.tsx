@@ -1,38 +1,63 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Timeline from "./timeline/timeline";
+import Timeline from "./timeline";
 
 const workIconDefinition: IconProp = ["fas", "briefcase"];
 
-const workExps = [
-  {
-    name: "Lorem Ipsum",
-    duration:"XX/XXXX - XX/XXXX",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    name: "Lorem Ipsum",
-    duration:"XX/XXXX - XX/XXXX",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    name: "Lorem Ipsum",
-    duration:"XX/XXXX - XX/XXXX",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    name: "Lorem Ipsum",
-    duration:"XX/XXXX - XX/XXXX",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-];
+interface WorkProp {}
 
-export default class Work extends React.Component {
+interface WorkObj {
+  id: string;
+  name: string;
+  description: string;
+  start: Date;
+  end: Date;
+}
+
+interface WorkState {
+  work: WorkObj[];
+}
+
+export default class Work extends React.Component<WorkProp, WorkState> {
+  constructor(props: WorkProp) {
+    super(props);
+    this.state = {
+      work: [],
+    };
+  }
+
+  componentDidMount(): void {
+    this.getWorkExperience();
+  }
+
+  private async getWorkExperience() {
+    await fetch("https://localhost:7255/api/work")
+      .then((response) => response.json())
+      .then((data) => {
+        let modified = data.map((obj: any) => {
+          return {
+            id: obj.id,
+            name: obj.companyName,
+            description: obj.workDescription,
+            start: this.parseISOString(obj.workStart),
+            end: this.parseISOString(obj.workEnd),
+          };
+        });
+        this.setState({ work: modified });
+      });
+  }
+
+  parseISOString(input: string) {
+    var temp = input.split(/\D+/).map((item) => {
+      return parseInt(item);
+    });
+
+    return new Date(
+      Date.UTC(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5])
+    );
+  }
+
   render() {
     return (
       <div className="flex flex-col">
@@ -40,7 +65,7 @@ export default class Work extends React.Component {
           <FontAwesomeIcon icon={workIconDefinition} />
           <h1 className="text-2xl">Work Experience</h1>
         </div>
-        <Timeline items={workExps}/>
+        <Timeline items={this.state.work} />
       </div>
     );
   }

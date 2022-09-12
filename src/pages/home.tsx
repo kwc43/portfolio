@@ -1,11 +1,7 @@
 import React from "react";
-import Hero from "../components/hero";
-import About from "../components/about";
-import Work from "../components/work";
-import Projects from "../components/projects";
-import "../utils/iconlibrary";
+import { Hero, About, Work, Projects } from "../components/index"
 
-export default class App extends React.Component {
+export default class Home extends React.Component {
   render() {
     return (
       <div className="flex flex-col items-center px-80 flex-1">

@@ -14,18 +14,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-library.add(
-  faMoon,
-  faSun,
-  faBars,
-  faTimes,
-  faEnvelope,
-  faFile,
-  faCircleQuestion,
-  faBriefcase,
-  faCalendarWeek,
-  faBook,
-  faPeopleGroup,
-  faGithub,
-  faLinkedin
-);
+export default function IconLibrary() {
+    library.add(
+      faMoon,
+      faSun,
+      faBars,
+      faTimes,
+      faEnvelope,
+      faFile,
+      faCircleQuestion,
+      faBriefcase,
+      faCalendarWeek,
+      faBook,
+      faPeopleGroup,
+      faGithub,
+      faLinkedin
+    );
+}

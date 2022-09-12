@@ -1,18 +1,18 @@
 import React from "react";
 import Model from "./model";
 
-interface CanvasProps {
+interface SceneProps {
   children?: React.ReactNode;
 }
 
-interface CanvasState {}
+interface SceneState {}
 
-export default class Canvas extends React.Component<CanvasProps, CanvasState> {
+export default class Scene extends React.Component<SceneProps, SceneState> {
   private canvasRef: React.RefObject<HTMLCanvasElement>;
 
   private model: Object;
 
-  constructor(props: CanvasProps) {
+  constructor(props: SceneProps) {
     super(props);
     this.canvasRef = React.createRef();
     this.model = [];
@@ -26,7 +26,7 @@ export default class Canvas extends React.Component<CanvasProps, CanvasState> {
     this.model = new Model(canvas!, modelPath);
   }
 
-  componentDidUpdate(prevProps: CanvasProps, prevState: CanvasState) {}
+  componentDidUpdate(prevProps: SceneProps, prevState: SceneState) {}
 
   componentWillUnmount() {}
 
