@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Cards from "./cards";
+import Config from "../config.json"
 
 const bookIconDefinition: IconProp = ["fas", "book"];
 
@@ -33,7 +34,7 @@ export default class Projects extends React.Component<
   }
 
   private async getProjects() {
-    await fetch("https://localhost:7255/api/projects")
+    await fetch(Config.PORTFOLIO_API_URL + "/api/projects")
       .then((response) => response.json())
       .then((data) => {
         let modified = data.map((obj: any) => {

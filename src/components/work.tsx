@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Timeline from "./timeline";
+import Config from "../config.json";
 
 const workIconDefinition: IconProp = ["fas", "briefcase"];
 
@@ -32,7 +33,7 @@ export default class Work extends React.Component<WorkProp, WorkState> {
   }
 
   private async getWorkExperience() {
-    await fetch("https://localhost:7255/api/work")
+    await fetch(Config.PORTFOLIO_API_URL + "/api/work")
       .then((response) => response.json())
       .then((data) => {
         let modified = data.map((obj: any) => {
