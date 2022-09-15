@@ -7,7 +7,8 @@ interface AbstractCardItem {
 }
 
 interface CardsProp<T> {
-  items: T[];
+  items: T[],
+  parent: string
 }
 
 export default class Cards<T extends AbstractCardItem> extends React.Component<
@@ -17,7 +18,7 @@ export default class Cards<T extends AbstractCardItem> extends React.Component<
     return this.props.items.map((item: T) => (
       <div className="w-1/2" key={item.id}>
         <Link
-          to={"/tbd/" + item.id}
+          to={"/projects/" + item.id}
           className="flex flex-row w-full h-full p-3 items-center rounded-lg shadow-md hover:bg-stone-900 dark:hover:bg-orange-300"
         >
           <div className="flex flex-col justify-between p-4 leading-normal">

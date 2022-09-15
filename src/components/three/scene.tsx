@@ -31,6 +31,6 @@ export default class Scene extends React.Component<SceneProps, SceneState> {
   componentWillUnmount() {}
 
   render() {
-    return <canvas className="m-auto w-1/2 h-full" ref={this.canvasRef}/>;
+    return <canvas className="w-full h-full" ref={this.canvasRef}/>;
   }
 }
