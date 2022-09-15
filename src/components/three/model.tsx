@@ -37,7 +37,7 @@ export default class Model {
       0.1,
       100
     );
-    this.camera.position.set(-3, 5, -5);
+    this.camera.position.set(-5, 3, 5);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 
@@ -62,8 +62,8 @@ export default class Model {
       modelPath,
       (gltf) => {
         const root: THREE.Group = gltf.scene;
-        root.position.setY(-1);
-        root.scale.set(0.5, 0.5, 0.5);
+        root.position.setY(-2.5);
+        root.scale.set(0.6, 0.6, 0.6);
 
         this.scene.add(root);
       },

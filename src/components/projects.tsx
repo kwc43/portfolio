@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Cards from "./cards";
+import { Cards } from "./utils/index";
 import Config from "../config.json"
 
 const bookIconDefinition: IconProp = ["fas", "book"];
@@ -56,7 +56,7 @@ export default class Projects extends React.Component<
           <h1 className="text-2xl">Projects</h1>
         </div>
         <div className="flex flex-row flex-wrap justify-center">
-          <Cards items={this.state.projects} />
+          <Cards items={this.state.projects} parent= "projects"/>
         </div>
       </div>
     );

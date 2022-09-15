@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import Timeline from "./timeline";
+import { Timeline } from "./utils/index";
 import Config from "../config.json";
 
 const workIconDefinition: IconProp = ["fas", "briefcase"];
