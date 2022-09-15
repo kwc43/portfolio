@@ -21,7 +21,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
   render() {
     return (
-      <div className="font-mono bg-stone-700 text-slate-200 dark:bg-orange-200 dark:text-slate-900">
+      <div className="font-mono bg-stone-700 text-slate-200 dark:bg-orange-200 dark:text-slate-900 w-screen min-h-screen">
         <Header />
         <div className="w-screen min-h-screen pt-12">
           <Routing/>
